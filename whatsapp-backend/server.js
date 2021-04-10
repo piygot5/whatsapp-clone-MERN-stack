@@ -3,12 +3,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Messages from './dbMessages.js';
 import Pusher from 'pusher';
+import cors from "cors";
+
 // mongo db password 68PSWmFPJIQzNi5R
 
 
 // app config
 const app = express();
 const port = process.env.port || 8000
+
 const pusher = new Pusher({
     appId: "1186113",
     key: "2cf60902cdc98d3f75c3",
@@ -19,6 +22,8 @@ const pusher = new Pusher({
 
 // middleware
 app.use(express.json())
+app.use(cors());
+
 
 // DB config
 //const connection_url = "mongodb://localhost:27017/whatsappdb";
@@ -30,7 +35,7 @@ mongoose.connect(connection_url,{
 });
 
 
-
+// pusher part
 const db = mongoose.connection;
 
 db.once("open",()=> {
@@ -59,12 +64,12 @@ db.once("open",()=> {
 
 
 
-// ???
+
 
 // api routes
 
 app.get("/", (req,res) =>{
-    res.status(200).send('hello world11111');
+    res.status(200).send('hello world');
 })
 app.get('/messages/sync', (req,res) =>{
     Messages.find( (err,data) =>{
