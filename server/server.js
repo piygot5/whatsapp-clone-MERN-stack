@@ -1,16 +1,21 @@
 // importing
-import express from 'express';
-import mongoose from 'mongoose';
-import Messages from './dbMessages.js';
-import Pusher from 'pusher';
-import cors from "cors";
+const express = require('express');
+const mongoose = require('mongoose');
+const Messages = require('./dbMessages');
+const Pusher = require('pusher');
+const cors = require('cors');
+
+//import mongoose from 'mongoose';
+//import Messages from './dbMessages.js';
+//import Pusher from 'pusher';
+//import cors from "cors";
 
 // mongo db password 68PSWmFPJIQzNi5R
 
 
 // app config
 const app = express();
-const port = process.env.port || 8000
+const port = process.env.port || 5000
 
 const pusher = new Pusher({
     appId: "1186113",
@@ -45,7 +50,7 @@ db.once("open",()=> {
     const changeStream = msgCollection.watch();
 
      changeStream.on("change",(change)=>{
-        console.log("A change occured", change);
+        //console.log("A change occured", change);
 
         if (change.operationType === "insert") {
             const messageDetails = change.fullDocument;
@@ -57,7 +62,7 @@ db.once("open",()=> {
                 received: messageDetails.received,
             });
         } else {
-            console.log("Error triggering pusher")            
+           // console.log("Error triggering pusher")            
         }
      });
 });
@@ -97,5 +102,5 @@ app.post('/messages/new', (req,res) =>{
 
 // listen
 app.listen(port, ()=>{
-    console.log(`Listening on localhost:  ${port}`)
+   // console.log(`Listening on localhost:  ${port}`)
 })
