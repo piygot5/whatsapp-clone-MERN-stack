@@ -13,6 +13,7 @@ function Chat({messages}) {
     const [input, setInput] = useState("");
 
     const sendMessage = async (e) => {
+        console.log("message type")
         e.preventDefault();
 
         await axios.post('/messages/new', {

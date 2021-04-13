@@ -6,7 +6,7 @@ const Pusher = require('pusher');
 const cors = require('cors');
 
 //import mongoose from 'mongoose';
-//import Messages from './dbMessages.js';
+//import Messages from './dbMessages.js';d
 //import Pusher from 'pusher';
 //import cors from "cors";
 
@@ -44,7 +44,7 @@ mongoose.connect(connection_url,{
 const db = mongoose.connection;
 
 db.once("open",()=> {
-    console.log("DB connected");
+    console.log("MongoDB connected");
 
     const msgCollection = db.collection("messagecontents");
     const changeStream = msgCollection.watch();
