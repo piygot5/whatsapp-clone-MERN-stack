@@ -56,18 +56,26 @@
     overflow-x: hidden;
 }
 
-.scrollbar-thin::-webkit-scrollbar {
-    width: 5px;  
-}
 
 
-.scrollbar-thin::-webkit-scrollbar-thumb {
-    border-radius: 10px;       /* roundness of the scroll thumb */
-    border: 5px solid lightgray; /*  creates padding around scroll thumb */
+/* https://www.digitalocean.com/community/tutorials/css-scrollbars */
+/* Works on Firefox */
+ {
+    scrollbar-width: thin;
+    scrollbar-color: gray;
 
-}
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
 
-
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border: 5px solid lightgray;
+    border-radius: 10px;
+  }*
 
 
 @media screen and (max-width: 768px) {

@@ -15,11 +15,14 @@ function Chat({messages}) {
     const sendMessage = async (e) => {
         console.log("message type")
         e.preventDefault();
-
+        let timestamp = Date.now();
+        let d = new Date(timestamp);
+      	timestamp = d.toLocaleTimeString().split(":")
+        let messageTime = timestamp[0]+":"+timestamp[1];
         await axios.post('/messages/new', {
             message: input,
             name: 'Piyush',
-            timestamp: '1pm',
+            timestamp: messageTime,
             received: true,
         });
 
@@ -32,10 +35,10 @@ function Chat({messages}) {
 
             {/* chat header */}
             <div className="chat_header">
-                <Avatar />
+            <Avatar src={`https://avatars.dicebear.com/api/human/$123.svg`}/>
                 <div className="chat_headerInfo">
-                    <h3>User name</h3>
-                    <p>Last seen at ...</p>
+                    <h3>Piyush</h3>
+                    <p>last seen</p>
                 </div>
 
                 <div className="chat_headerRight">

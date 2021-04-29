@@ -6,7 +6,7 @@ const Pusher = require('pusher');
 const cors = require('cors');
 
 //import mongoose from 'mongoose';
-//import Messages from './dbMessages.js';d
+//import Messages from './dbMessages.js';
 //import Pusher from 'pusher';
 //import cors from "cors";
 

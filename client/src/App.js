@@ -8,6 +8,7 @@ import axios from "./axios";
 function App() {
 
   const [messages, setMessages] = useState([]);
+  const [lastmessage, setLastmessage] = useState([]);
   console.log("entered app.js")
 
   useEffect(() => {
@@ -15,6 +16,7 @@ function App() {
       .then(response => {
         console.log("message downloading.....")
         setMessages(response.data);
+        setLastmessage("Hi");
       });
   }, []);
 
@@ -27,7 +29,9 @@ function App() {
     const channel = pusher.subscribe("messages");
     channel.bind("inserted", (newMessage) => {
       setMessages([...messages, newMessage]);
+      setLastmessage(newMessage.message)
     });
+    
 
     return () => {
       channel.unbind_all();
@@ -40,7 +44,7 @@ function App() {
   return (
     <div className="app">
       <div className="app_body">
-        <Sidebar />
+        <Sidebar lastmessage={lastmessage} />
         <Chat messages={messages}/>
       </div>
     </div>

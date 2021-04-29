@@ -38,16 +38,7 @@
 
 }
 
-.scrollbar-thin::-webkit-scrollbar {
-    width: 15px;  
-}
 
-
-.scrollbar-thin::-webkit-scrollbar-thumb {
-    border-radius: 30px;       
-    border: 15px groove gray; /*  creates padding around scroll thumb */
-
-}
 .chat_message {
     position: relative;
     font-size: 16px;
@@ -55,7 +46,7 @@
     width: fit-content;
     border-radius: 10px;
     background-color: white;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     max-width: 60%;
     font-size: 15px
 }
@@ -109,7 +100,24 @@
 
 
 
+/* https://www.digitalocean.com/community/tutorials/css-scrollbars */
+/* Works on Firefox */
+ {
+    scrollbar-width: thin;
+    scrollbar-color: gray;
 
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border: 5px solid lightgray;
+    border-radius: 10px;
+  }*
 
 @media screen and (max-width: 768px) {
     .chat {
