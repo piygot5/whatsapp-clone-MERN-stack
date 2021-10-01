@@ -45,7 +45,6 @@ function Sidebar({lastmessage}) {
             {/* user chat block */}
             <div className="sidebar_chats scrollbar-thin">
 
-                {/* {console.log(messages[messages.length-1].message)} */}
                 <div className="sidebarChat">
                     <Avatar src={`https://avatars.dicebear.com/api/human/$123.svg`}/>
                     <div className="sidebarChat_info">
@@ -54,15 +53,9 @@ function Sidebar({lastmessage}) {
                         
                     </div>
                 </div>
-                <SidebarChat />
-                <SidebarChat  />
-                <SidebarChat  />
-                <SidebarChat  />
-                <SidebarChat  />
-                <SidebarChat  />
-                <SidebarChat  />
+
               
-                {/* <SidebarChat messages = {[]}/> */}
+
                 
             </div>
             {/* user chat block end */}

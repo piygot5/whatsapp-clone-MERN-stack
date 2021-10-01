@@ -14,9 +14,10 @@ function App() {
   useEffect(() => {
     axios.get("/messages/sync")
       .then(response => {
-        console.log("message downloading.....")
+        console.log("message downloading.....",response.data[response.data.length-1].message)
+
         setMessages(response.data);
-        setLastmessage("Hi");
+        setLastmessage(response.data[response.data.length-1].message);
       });
   }, []);
 
